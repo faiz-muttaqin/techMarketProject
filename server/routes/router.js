@@ -12,7 +12,6 @@ const newsController = require("../controller/newsController");
 const orderController = require("../controller/orderController");
 const productController = require("../controller/productController");
 
-
 //renderweb
 route.get("/", services.index);
 route.get("/about", services.about);
@@ -35,13 +34,40 @@ route.get("/userOrderList", services.userOrderList);
 route.get("/userOrder", services.userOrder);
 route.get("/userProfile", services.userProfile);
 
+//API product
+route.post("/api/productController", productController.create);
+route.get("/api/productController", productController.find);
+route.put("/api/productController/:id", productController.update);
+route.delete("/api/productController/:id", productController.delete);
 
+//API user
+route.post("/api/userController", userController.create);
+route.get("/api/userController", userController.find);
+route.put("/api/userController/:id", userController.update);
+route.delete("/api/userController/:id", userController.delete);
 
+//API order
+route.post("/api/orderController", orderController.create);
+route.get("/api/orderController", orderController.find);
+route.put("/api/orderController/:id", orderController.update);
+route.delete("/api/orderController/:id", orderController.delete);
 
-//API
-// route.post("/api/users", controller.create);
-// route.get("/api/users", controller.find);
-// route.put("/api/users/:id", controller.update);
-// route.delete("/api/users/:id", controller.delete);
+//API news
+route.post("/api/newsController", newsController.create);
+route.get("/api/newsController", newsController.find);
+route.put("/api/newsController/:id", newsController.update);
+route.delete("/api/newsController/:id", newsController.delete);
+
+//API favorites
+route.post("/api/favoritesController", favoritesController.create);
+route.get("/api/favoritesController", favoritesController.find);
+route.put("/api/favoritesController/:id", favoritesController.update);
+route.delete("/api/favoritesController/:id", favoritesController.delete);
+
+//API cart
+route.post("/api/cartController", cartController.create);
+route.get("/api/cartController", cartController.find);
+route.put("/api/cartController/:id", cartController.update);
+route.delete("/api/cartController/:id", cartController.delete);
 
 module.exports = route;
